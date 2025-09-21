@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Axis — AI Scanner & Website Project Generator</title>
+
+  <!-- favicon placeholder (will be replaced if the site provides one) -->
+  <link rel="icon" type="image/png" href="images/Favicon.jpg">
+
+  <!-- External libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/Favicon.jpg" alt="Axis" class="logo" />
+      <h1>Axis</h1>
+    </div>
+    <p class="lead">Enter a site URL, scan it with the built-in AI heuristics, and download a VS Code-ready project .zip</p>
+  </header>
+
+  <main class="container">
+    <aside class="panel input-panel card">
+      <label for="url">Website URL</label>
+      <input id="url" type="text" placeholder="https://example.com" autocomplete="off" />
+      <div class="row">
+        <button id="scanBtn" class="primary">Scan & Build Project</button>
+        <button id="downloadBtn" class="secondary" disabled>Download Last ZIP</button>
+      </div>
+
+      <div class="status-area">
+        <div id="statusText">Idle</div>
+        <progress id="progress" value="0" max="100" style="width:100%; display:none"></progress>
+      </div>
+
+      <hr/>
+      <div class="summary small">
+        <div class="small">Quick Summary</div>
+        <div class="kvs" id="quickKVs"></div>
+        <div id="quickReport" class="small quiet"></div>
+      </div>
+    </aside>
+
+    <section class="panel report-panel card">
+      <div class="report-header">
+        <h2>AI Audit Report</h2>
+        <div class="right">
+          <span id="issuesCount" class="badge">—</span>
+          <span id="timeTaken" class="small quiet"></span>
+        </div>
+      </div>
+
+      <div id="report" class="report-list"></div>
+
+      <hr/>
+
+      <div class="two-cols">
+        <div>
+          <div class="small">index.html (excerpt)</div>
+          <textarea id="htmlPreview" readonly></textarea>
+        </div>
+        <div>
+          <div class="small">Audit / Log</div>
+          <textarea id="log" readonly></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Demo uses a public CORS proxy. For reliable results, run a server-side fetcher in production.</div>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This tool is for **educational and personal use only**. Downloading,
+      copying, or redistributing websites without permission may violate copyright or other laws.
+      Use responsibly and only for sites you own or have permission to replicate.
+    </div>
+  </footer>
+
+  <!-- App logic -->
+  <script src="app.js"></script>
+</body>
+</html>

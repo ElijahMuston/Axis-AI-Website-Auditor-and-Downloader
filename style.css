@@ -1,0 +1,119 @@
+/* style.css — Axis tool styling (clean, responsive) */
+
+:root{
+  --bg: #0f1720;
+  --card: #0b1220;
+  --muted: #9aa7b2;
+  --accent: #3b82f6;
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.02);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071018 0%,var(--bg) 100%);
+  color:#e6eef6;
+}
+
+/* Header */
+.site-header{
+  padding:20px 28px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:flex-start;
+  max-width:1300px;
+  margin:0 auto;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo{
+  width:36px;
+  height:36px;
+  border-radius:6px;
+  object-fit:cover;
+  background:var(--glass);
+}
+.site-header h1{margin:0;font-size:20px}
+.lead{margin:0;color:var(--muted);font-size:13px}
+
+/* Layout */
+.container{
+  display:grid;
+  grid-template-columns:360px 1fr;
+  gap:18px;
+  max-width:1300px;
+  margin:18px auto;
+  padding:0 18px 28px 18px;
+}
+
+.card{
+  background:var(--card);
+  padding:14px;
+  border-radius:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+  overflow:auto;
+}
+
+/* Inputs */
+label{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+input[type=text]{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.03);
+  background:var(--glass);
+  color:inherit;
+  outline:none;
+}
+.row{display:flex;gap:8px;margin-top:12px}
+button{
+  padding:10px 12px;
+  border-radius:8px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+}
+button.primary{background:var(--accent);color:white}
+button.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+.status-area{margin-top:12px}
+#statusText{font-size:13px;color:var(--muted)}
+progress{margin-top:8px}
+
+/* Summary kvs */
+.kvs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.kv{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:6px;font-size:13px;color:inherit}
+
+/* Report */
+.report-header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px}
+.small{font-size:13px;color:var(--muted)}
+.quiet{color:rgba(255,255,255,0.45)}
+.report-list{margin-top:12px}
+.report-item{border-left:4px solid rgba(255,255,255,0.03);padding:10px;margin-bottom:8px;border-radius:6px;background:rgba(255,255,255,0.01)}
+
+/* Two columns */
+.two-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+textarea{width:100%;height:200px;background:rgba(255,255,255,0.02);color:inherit;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);resize:vertical;font-family:monospace;font-size:13px}
+
+/* Footer */
+.site-footer{max-width:1300px;margin:0 auto;padding:20px 18px;color:var(--muted);font-size:13px;display:flex;flex-direction:column;gap:12px}
+.disclaimer{background:rgba(0,0,0,0.15);padding:12px;border-radius:8px;color:#cfcfcf;font-size:13px}
+
+/* Responsive */
+@media (max-width:980px){
+  .container{grid-template-columns:1fr; padding:0 12px}
+  .brand{align-items:center}
+  .two-cols{grid-template-columns:1fr}
+}
